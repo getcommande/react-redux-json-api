@@ -1,4 +1,4 @@
-import babel from 'rollup-plugin-babel';
+import { babel } from '@rollup/plugin-babel';
 import pkg from './package.json';
 
 export default {
@@ -12,14 +12,18 @@ export default {
   plugins: [
     babel({
       babelrc: false,
-      presets: [['env', { modules: false }], 'flow', 'react'],
-      plugins: [
-        'external-helpers',
-        'transform-class-properties',
-        'transform-runtime',
-        'transform-object-rest-spread',
+      presets: [
+        ['@babel/preset-env', { modules: false }],
+        '@babel/preset-flow',
+        '@babel/preset-react',
       ],
-      runtimeHelpers: true,
+      plugins: [
+        '@babel/plugin-external-helpers',
+        '@babel/plugin-proposal-class-properties',
+        '@babel/plugin-transform-runtime',
+        '@babel/plugin-proposal-object-rest-spread',
+      ],
+      babelHelpers: 'runtime',
     }),
   ],
 };

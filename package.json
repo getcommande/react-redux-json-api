@@ -17,6 +17,7 @@
   "scripts": {
     "build": "yarn run ci && rimraf lib/* && rollup -c",
     "ci": "yarn run test && yarn run lint",
+    "flow-typed": "rimraf flow-typed/* && flow-typed install || true && killall flow || true",
     "lint": "eslint \"src/**\"",
     "test": "jest"
   },
@@ -32,23 +33,24 @@
     "verbose": true
   },
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-core": "^6.26.3",
-    "babel-eslint": "^9.0.0",
+    "@babel/cli": "^7.0.0",
+    "@babel/core": "^7.0.0",
+    "@babel/plugin-external-helpers": "^7.0.0",
+    "@babel/plugin-proposal-class-properties": "^7.0.0",
+    "@babel/plugin-proposal-object-rest-spread": "^7.0.0",
+    "@babel/plugin-transform-runtime": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
+    "@babel/preset-flow": "^7.0.0",
+    "@babel/preset-react": "^7.0.0",
+    "@rollup/plugin-babel": "^5.2.2",
+    "babel-eslint": "^10.0.0",
     "babel-jest": "^23.4.2",
-    "babel-plugin-external-helpers": "^6.22.0",
-    "babel-plugin-transform-class-properties": "^6.24.1",
-    "babel-plugin-transform-object-rest-spread": "^6.26.0",
-    "babel-plugin-transform-runtime": "^6.23.0",
-    "babel-preset-env": "^1.7.0",
-    "babel-preset-flow": "^6.23.0",
-    "babel-preset-react": "^6.24.1",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "eslint": "^4.19.1",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-config-jest-enzyme": "^6.0.0",
-    "eslint-plugin-flowtype": "^2.46.3",
+    "eslint-plugin-flowtype": "^4.0.0",
     "eslint-plugin-import": "^2.11.0",
     "eslint-plugin-jest": "^21.15.1",
     "eslint-plugin-jsx-a11y": "^6.0.3",
@@ -65,8 +67,7 @@
     "redux-thunk": "^2.2.0",
     "regenerator-runtime": "^0.11.1",
     "rimraf": "^2.6.2",
-    "rollup": "^0.56.4",
-    "rollup-plugin-babel": "^3.0.7"
+    "rollup": "^2.36.0"
   },
   "dependencies": {
     "react-redux": "^5.0.7",
@@ -74,7 +75,7 @@
     "reselect": "^3.0.1"
   },
   "peerDependencies": {
-    "babel-runtime": "^6.26.0",
-    "react": "^16.3.2"
+    "@babel/runtime": "^7.0.0",
+    "react": "^16.13.0"
   }
 }
