@@ -1,5 +1,5 @@
-// flow-typed signature: 049afc81a36fe3ff0b8a977b916d4e33
-// flow-typed version: 35159486e5/react-redux_v5.x.x/flow_>=v0.63.0
+// flow-typed signature: b872fdc4da6b0c1021c55df6fab87e73
+// flow-typed version: f8afc4cfdd/react-redux_v5.x.x/flow_>=v0.68.0 <=v0.84.x
 
 declare module "react-redux" {
   import type { ComponentType, ElementConfig } from 'react';
@@ -16,15 +16,15 @@ declare module "react-redux" {
     replaceReducer(nextReducer: Reducer<S, A>): void
   };
 
-  declare export class Provider<S, A> extends React$Component<{
-    store: Store<S, A>,
+  declare export class Provider<S, A, D> extends React$Component<{
+    store: Store<S, A, D>,
     children?: any
   }> {}
 
   declare export function createProvider(
     storeKey?: string,
     subKey?: string
-  ): Provider<*, *>;
+  ): Provider<*, *, *>;
 
   /*
 

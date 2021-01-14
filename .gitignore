@@ -18,6 +18,7 @@ node_modules
 # Vim
 *.sw*
 
-lib
+# Command E mod: commit lib to host built version on GitHub
+# lib
 .DS_Store
 .nvmrc
